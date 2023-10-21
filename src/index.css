@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    @apply text-subtitle
+}
+
+li {
+    @apply text-normal
+}
+/* Navbar */
+.navbar-section {
+    @apply flex items-center gap-4
+}
+
+.navbar-ul {
+    @apply menu transition-all duration-500 ease-in
+    lg:flex lg:items-center lg:gap-4 lg:static lg:flex-row lg:z-auto lg:w-auto lg:pl-0;
+}
+
+.menu {
+    @apply flex flex-col gap-2 items-center absolute left-0 w-full -z-10 bg-gray-5 py-4 lg:p-0
+}
+
+.navbar-link {
+    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+
+.navbar-link:hover {
+    --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+  
+.navbar-link::after {
+    content: "";
+    display: block;
+    background: rgb(63, 63, 63);
+    width: 90%;
+    margin-top: 0.15rem;
+    height: 0.15rem;
+    clip-path: var(--clippy);
+    transition: clip-path 0.5s ease;
+}
+
+.icon {
+    @apply relative;
+}
+
+.icon-number {
+    @apply absolute flex justify-center items-center bg-cyan-40 h-4 w-4 text-tag rounded-full -top-1 -right-1
+}
