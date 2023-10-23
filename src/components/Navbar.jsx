@@ -1,22 +1,24 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { CartIcon, MenuIcon } from "../assets/Icons/Icons";
 
 export default function Navbar () {
     const [ open, setOpen ] = useState()
+    const activeStyle = 'underline underline-offset-4'
 
     const typesProducts = [
-        {name:'All', link:'#home'},
-        {name:'Clothes', link:''},
-        {name:'Electronics', link: ''},
-        {name:'Furniture', link: ''},
-        {name:'Toys', link:''},
-        {name:'Others', link:''}
+        {name:'All', link:'/'},
+        {name:'Clothes', link:'/'},
+        {name:'Electronics', link: '/'},
+        {name:'Furniture', link: '/'},
+        {name:'Toys', link:'/'},
+        {name:'Others', link:'/'}
     ]
 
     const otherActions = [
-        {name:'My Orders', link:''},
-        {name:'My Account', link:''},
-        {name:'Sign out', link: ''}
+        {name:'My Orders', link:'/my-orders'},
+        {name:'My Account', link:'/my-account'},
+        {name:'Sign out', link: '/sign-out'}
     ]
 
     return ( 
@@ -29,9 +31,9 @@ export default function Navbar () {
                     {
                         typesProducts.map(({name, link}) => (
                             <li key={name}>
-                                <a href={link} className="navbar-link">
-                                    {name}
-                                </a>
+                                <Link to={link} className="navbar-link">
+                                    { name }
+                                </Link>
                             </li>
                         ))
                     }
@@ -50,9 +52,9 @@ export default function Navbar () {
                 {
                     otherActions.map(({name, link}) => (
                         <li key={name}>
-                            <a className="navbar-link" href={link}>
-                                {name}
-                            </a>
+                            <Link to={link} className="navbar-link">
+                                { name }
+                            </Link >
                         </li>
                     ))
                 }

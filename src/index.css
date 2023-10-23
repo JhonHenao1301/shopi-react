@@ -24,7 +24,7 @@ li {
 }
 
 .menu {
-    @apply flex flex-col gap-2 items-center absolute left-0 w-full -z-10 bg-gray-5 py-4 lg:p-0
+    @apply flex flex-col gap-2 items-center absolute left-0 w-full bg-gray-5 py-4 lg:p-0 z-10
 }
 
 .navbar-link {

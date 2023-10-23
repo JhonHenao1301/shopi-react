@@ -18,7 +18,11 @@ export default {
       'normal': '1rem',
       'tag': '.7rem',
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        'fit' : 'repeat(autofit, minmax(200px, 480px))'
+      }
+    },
   },
   plugins: [],
 }
