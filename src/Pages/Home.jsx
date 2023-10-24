@@ -3,10 +3,11 @@ import { useContext } from "react"
 import { ShoppingCartContext } from "../Context"
 import Card from "../components/Card"
 import Layout from "../components/Layout"
+import Loader from "../components/Loader"
 
 export default function Home () {
 
-    const { items } = useContext(ShoppingCartContext)
+    const { loading, filteredItems } = useContext(ShoppingCartContext)
     return ( 
         <Layout>
             <div className='flex items-center justify-center relative w-80 mb-4'>
@@ -20,14 +21,18 @@ export default function Home () {
                 className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none'
                 // onChange={(event) => context.setSearchByTitle(event.target.value)} 
             />
-            <div className='grid grid-cols-fits gap-8 justify-center w-full max-w-screen-lg '>
+            <div className='grid grid-cols-fits gap-8 px-4 justify-center w-full max-w-screen-xl '>
                 {
-                    items?.map(item => (
-                        <Card 
-                            key={item.id}
-                            data={item}
-                        />
-                    ))
+                    filteredItems?.length > 0
+                    ?   !loading
+                        ?   filteredItems?.map(item => (
+                                <Card 
+                                    key={item.id}
+                                    data={item}
+                                />
+                            ))
+                        :   <Loader />
+                    : <h1 className="mt-4 text-center">No images found</h1>
                 }
             </div>
         </Layout>

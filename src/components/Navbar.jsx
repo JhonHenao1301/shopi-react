@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartIcon, MenuIcon } from "../assets/Icons/Icons";
+import { ShoppingCartContext } from "../Context";
 
 export default function Navbar () {
     const [ open, setOpen ] = useState()
-    const activeStyle = 'underline underline-offset-4'
+    const { setCategory } = useContext(ShoppingCartContext)
 
     const typesProducts = [
-        {name:'All', link:'/'},
-        {name:'Clothes', link:'/'},
-        {name:'Electronics', link: '/'},
-        {name:'Furniture', link: '/'},
-        {name:'Toys', link:'/'},
-        {name:'Others', link:'/'}
+        {name:'All', category: ''},
+        {name:'Clothes', category: 'Clothes'},
+        {name:'Electronics', category: 'Electronics'},
+        {name:'Furniture', category: 'Furniture'},
+        {name:'Story', category: 'toys'},
+        {name:'Others', category: 'Others'}
     ]
 
     const otherActions = [
@@ -29,11 +30,14 @@ export default function Navbar () {
                 </h2>
                 <ul className='flex gap-4'>
                     {
-                        typesProducts.map(({name, link}) => (
+                        typesProducts.map(({name, category}) => (
                             <li key={name}>
-                                <Link to={link} className="navbar-link">
+                                <button 
+                                    className="navbar-link"
+                                    onClick={() => setCategory(category)}
+                                >
                                     { name }
-                                </Link>
+                                </button>
                             </li>
                         ))
                     }

@@ -14,7 +14,11 @@ export default function Card ({ data }) {
                 <div className="icon-plus-cart">
                     <AddToCartIcon className='w-6 h-6 text-slate-200' />
                 </div>
-                <img className='w-full h-full object-cover rounded-lg' src={data.images[0]} alt={data.title} />
+                {
+                    data.images[0] !== 'https://placeimg.com/640/480/any'
+                    ? <img className='w-full h-full object-cover rounded-lg'  src={data.images[0]} alt={data.title} />
+                    : <img className='w-full h-full object-cover rounded-lg'  src="./no-image.jpg" alt={data.title} />
+                }
             </figure>
             <p className='flex justify-between'>
                 <span className='text-sm font-light'>{data.title}</span>
