@@ -15,7 +15,7 @@ export default function Card ({ data }) {
                     <AddToCartIcon className='w-6 h-6 text-slate-200' />
                 </div>
                 {
-                    data.images[0] !== 'https://placeimg.com/640/480/any'
+                    data.images[0].search('https://placeimg.com/640/480/any')
                     ? <img className='w-full h-full object-cover rounded-lg'  src={data.images[0]} alt={data.title} />
                     : <img className='w-full h-full object-cover rounded-lg'  src="./no-image.jpg" alt={data.title} />
                 }

@@ -22,26 +22,32 @@ export default function Navbar () {
         {name:'Sign out', link: '/sign-out'}
     ]
 
+    const handleChange = (e) => {
+        setCategory(e.target.value)
+    }
+
     return ( 
         <nav className="bg-gray-5 top-0 flex justify-between items-center p-4">
             <div className="navbar-section">
                 <h2 className="font-bold">
                     <a href="/">Shopi</a>
                 </h2>
-                <ul className='flex gap-4'>
+                
+                <select 
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5" 
+                    onChange={handleChange}
+                >
                     {
                         typesProducts.map(({name, category}) => (
-                            <li key={name}>
-                                <button 
-                                    className="navbar-link"
-                                    onClick={() => setCategory(category)}
-                                >
-                                    { name }
-                                </button>
-                            </li>
+                            <option 
+                                key={name}
+                                value={category}
+                            >
+                                { name }
+                            </option>
                         ))
                     }
-                </ul>
+                </select>
             </div>
             <div 
                 onClick={()=>setOpen(!open)} 
