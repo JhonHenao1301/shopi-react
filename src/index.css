@@ -53,3 +53,13 @@ li {
 .icon-number {
     @apply absolute flex justify-center items-center bg-cyan-40 h-4 w-4 text-tag rounded-full -top-1 -right-1
 }
+
+/* Card */
+
+.span-category {
+    @apply absolute bottom-0 left-0 rounded-lg m-2 px-3 py-0.5 bg-gray-5 text-tag
+}
+
+.icon-plus-cart {
+    @apply absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 p-1 bg-gray-5
+}

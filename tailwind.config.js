@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       gridTemplateColumns: {
-        'fit' : 'repeat(autofit, minmax(200px, 480px))'
+        'fits' : 'repeat(auto-fit, minmax(200px, 230px))'
       }
     },
   },
