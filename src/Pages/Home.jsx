@@ -7,7 +7,7 @@ import Loader from "../components/Loader"
 
 export default function Home () {
 
-    const { loading, filteredItems } = useContext(ShoppingCartContext)
+    const { loading, filteredItems, setSearch } = useContext(ShoppingCartContext)
     return ( 
         <Layout>
             <div className='flex items-center justify-center relative w-80 mb-4'>
@@ -19,7 +19,7 @@ export default function Home () {
                 type="text"
                 placeholder='Search a product'
                 className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none'
-                // onChange={(event) => context.setSearchByTitle(event.target.value)} 
+                onChange={(event) => setSearch(event.target.value)} 
             />
             <div className='grid grid-cols-fits gap-8 px-4 justify-center w-full max-w-screen-xl '>
                 {

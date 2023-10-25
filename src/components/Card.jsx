@@ -2,11 +2,8 @@
 import { AddToCartIcon } from "../assets/Icons/Icons";
 
 export default function Card ({ data }) {
-    // {renderIcon(data.id)}
     return ( 
-        <div className='bg-white cursor-pointer w-56 h-60 rounded-lg'
-            // onClick={() => showProduct(data.data)}
-        >
+        <div className='bg-white cursor-pointer w-56 h-60 rounded-lg'>
             <figure className='relative bg-white mb-2 w-full h-4/5'>
                 <span className='span-category'>
                     {data.category.name}
@@ -26,6 +23,6 @@ export default function Card ({ data }) {
                     ${data.price}
                 </span>
             </p>
-      </div>
+        </div>
     )
 }
