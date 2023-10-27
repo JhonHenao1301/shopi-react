@@ -12,8 +12,11 @@ export const ShoppingCartProvider = (({ children }) => {
     const [ search, setSearch ] = useState('')
 
     const [ count, setCount ] = useState(0)
+    const [ isOpenCheckout, setIsOpenCheckout ] = useState(null)
+    const [ cart, setCart ] = useState([])
+
     const [ isOpenProductDetail, setIsOpenProductDetail ] = useState(null)
-    const [ productToShow, setProductToShow ] = useState([]) 
+    const [ productToShow, setProductToShow ] = useState(null) 
     
     // Get all data from API
     useEffect(() => {
@@ -33,6 +36,7 @@ export const ShoppingCartProvider = (({ children }) => {
         return items?.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
     }
 
+    //Filter data by category or search
     useEffect(() => {
         setLoading(true)
         if(category === '') setFilteredItems(items)
@@ -53,6 +57,10 @@ export const ShoppingCartProvider = (({ children }) => {
             isOpenProductDetail,
             productToShow,
             setProductToShow,
+            cart, 
+            setCart,
+            setIsOpenCheckout,
+            isOpenCheckout,
         }}>
             { children }
         </ShoppingCartContext.Provider>

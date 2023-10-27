@@ -2,13 +2,23 @@
 import { useContext, useState } from "react";
 import { AddToCartIcon } from "../assets/Icons/Icons";
 import { ShoppingCartContext } from "../Context";
-import ProductDetail from "./ProductDetail";
 
 export default function Card ({ data }) {
-    const { count, setCount, setIsOpenProductDetail, setProductToShow } = useContext(ShoppingCartContext)
+    const { 
+        count, 
+        setCount, 
+        setIsOpenProductDetail, 
+        setProductToShow,
+        cart,
+        setCart,
+        setIsOpenCheckout
+    } = useContext(ShoppingCartContext)
 
-    const handleAddButton = () => {
+    const handleAddButton = (event, itemData) => {
+        // event.preventDefault()
         setCount(count + 1)
+        setCart([...cart, itemData])
+        setIsOpenCheckout(true)
     }
 
     const handleItemSelected = (itemData) => {
@@ -17,13 +27,13 @@ export default function Card ({ data }) {
     }
 
     return ( 
-        <div className='bg-white cursor-pointer w-56 h-60 rounded-lg' onClick={() => handleItemSelected(data)}>
-            <figure className='relative bg-white mb-2 w-full h-4/5'>
+        <div className='bg-white w-56 h-60 rounded-lg'>
+            <figure className='relative cursor-pointer bg-white mb-2 w-full h-4/5' onClick={() => handleItemSelected(data)}>
                 <span className='span-category'>
                     {data.category.name}
                 </span>
-                <div className="icon-plus-cart" onClick={handleAddButton}>
-                    <AddToCartIcon className='w-6 h-6 text-slate-200'/>
+                <div className="icon-plus-cart" onClick={(event) => handleAddButton(event, data)}>
+                    <AddToCartIcon className='w-6 h-6 text-slate-200' />
                 </div>
                 {
                     data.images[0].search('https://placeimg.com/640/480/any')

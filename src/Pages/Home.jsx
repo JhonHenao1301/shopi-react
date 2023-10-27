@@ -5,6 +5,7 @@ import Card from "../components/Card"
 import Layout from "../components/Layout"
 import Loader from "../components/Loader"
 import ProductDetail from "../components/ProductDetail"
+import CheckOutSideMenu from "../components/CheckOutSideMenu"
 
 export default function Home () {
 
@@ -40,6 +41,7 @@ export default function Home () {
                 }
             </div>
             <ProductDetail />
+            <CheckOutSideMenu />
         </Layout>
     )
 }
