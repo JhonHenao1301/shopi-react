@@ -63,3 +63,10 @@ li {
 .icon-plus-cart {
     @apply absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 p-1 bg-white-5
 }
+
+/* Product detail */
+.product-detail {
+    width: 360px;
+    height: calc(100vh - 68px);
+    top: 68px;
+}

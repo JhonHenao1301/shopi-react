@@ -4,10 +4,14 @@ import { ShoppingCartContext } from "../Context"
 import Card from "../components/Card"
 import Layout from "../components/Layout"
 import Loader from "../components/Loader"
+import ProductDetail from "../components/ProductDetail"
 
 export default function Home () {
 
-    const { loading, filteredItems, setSearch } = useContext(ShoppingCartContext)
+    const { loading, 
+            filteredItems, 
+            setSearch,
+          } = useContext(ShoppingCartContext)
     return ( 
         <Layout>
             <div className='flex items-center justify-center relative w-80 mb-4'>
@@ -35,6 +39,7 @@ export default function Home () {
                     : <h1 className="mt-4 text-center">No images found</h1>
                 }
             </div>
+            <ProductDetail />
         </Layout>
     )
 }

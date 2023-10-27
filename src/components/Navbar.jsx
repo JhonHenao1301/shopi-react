@@ -5,14 +5,14 @@ import { ShoppingCartContext } from "../Context";
 
 export default function Navbar () {
     const [ open, setOpen ] = useState()
-    const { setCategory } = useContext(ShoppingCartContext)
+    const { setCategory, count } = useContext(ShoppingCartContext)
 
     const typesProducts = [
         {name:'All', category: ''},
-        {name:'Clothes', category: 'change name'},
+        {name:'New', category: 'nuevo'},
         {name:'Electronics', category: 'Electronics'},
         {name:'Furniture', category: 'Furniture'},
-        // {name:'Story', category: 'toys'},
+        {name:'Phone', category: 'Phones'},
         {name:'Others', category: 'Others'}
     ]
 
@@ -70,7 +70,7 @@ export default function Navbar () {
                 }
                 <li className="icon">
                     <CartIcon />
-                    <span className="icon-number">3</span>
+                    <span className="icon-number">{ count }</span>
                 </li>
             </ul>
         </nav>
