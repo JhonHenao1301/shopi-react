@@ -11,7 +11,8 @@ export default {
       'gray-20': '#8492a6',
       'gray-10': '#94a3b8',
       'gray-5': "#f8fafc",
-      'white-5': "#ffffffcc",
+      'white-10': "#ffffffcc",
+      'white-5': "#ffffff",
     },
     fontSize: {
       'title': '1.5rem',

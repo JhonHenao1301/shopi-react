@@ -53,14 +53,14 @@ export const ShoppingCartProvider = (({ children }) => {
             setSearch,
             count,
             setCount,
-            setIsOpenProductDetail,
             isOpenProductDetail,
+            setIsOpenProductDetail,
             productToShow,
             setProductToShow,
             cart, 
             setCart,
-            setIsOpenCheckout,
             isOpenCheckout,
+            setIsOpenCheckout
         }}>
             { children }
         </ShoppingCartContext.Provider>

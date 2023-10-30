@@ -6,24 +6,28 @@ import { totalPrice } from "../utils/index"
 import OrderCard from "./OrderCard"
 
 export default function CheckOutSideMenu () {
-    const { cart, isOpenCheckout } = useContext(ShoppingCartContext)
+    const { cart, setIsOpenCheckout, isOpenCheckout } = useContext(ShoppingCartContext)
     const total = (products) => {
         return totalPrice(products)
     }
 
+    const handleCloseMenu = () => {
+        setIsOpenCheckout(false)
+    }
 
     return ( 
         <aside className={`${isOpenCheckout ? 'flex' : 'hidden'} checkout flex-col justify-between gap-4 fixed right-0 border border-black rounded-lg bg-gray-5 py-4 px-2`}>
             <div className='flex justify-between items-center px-4'>
                 <h2 className='font-semibold text-xl'>My Order</h2>
                 <div
-                    className='h-6 w-6 text-black cursor-pointer' >
-                    <CloseMenuIcon/>
+                    className='h-6 w-6 text-black cursor-pointer'
+                    onClick={handleCloseMenu}
+                >
+                    <CloseMenuIcon />
                 </div>
             </div>
             <div className="flex flex-col gap-4 px-4 overflow-y-scroll flex-1">
-                {   
-                    // console.log(cart)
+                {
                     cart?.map((cartItem) => (
                         <OrderCard data={cartItem} key={cartItem.id} />
                     ))
