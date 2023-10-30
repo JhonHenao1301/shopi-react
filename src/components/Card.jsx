@@ -16,9 +16,7 @@ export default function Card ({ data }) {
 
     const handleAddButton = (event, itemData) => {
         // event.preventDefault()
-        setCount(count + 1)
         setCart([...cart, itemData])
-        setIsOpenCheckout(true)
     }
 
     const handleItemSelected = (itemData) => {
@@ -57,7 +55,7 @@ export default function Card ({ data }) {
                 { renderCardIcon(cart, data.id)}
                 {
                     data.images[0].search('https://placeimg.com/640/480/any')
-                    ? <img className='w-full h-full object-cover rounded-lg'  src={data.images[0]} alt={data.title} />
+                    ? <img className='w-full h-full object-cover rounded-lg' src={data.images[0]} alt={data.title} />
                     : <img className='w-full h-full object-cover rounded-lg'  src="./no-image.jpg" alt={data.title} />
                 }
             </figure>

@@ -5,7 +5,7 @@ import { ShoppingCartContext } from "../Context";
 
 export default function Navbar () {
     const [ open, setOpen ] = useState()
-    const { setCategory, count } = useContext(ShoppingCartContext)
+    const { setCategory, cart, setIsOpenCheckout } = useContext(ShoppingCartContext)
 
     const typesProducts = [
         {name:'All', category: ''},
@@ -68,9 +68,9 @@ export default function Navbar () {
                         </li>
                     ))
                 }
-                <li className="icon">
+                <li className="icon" onClick={() => setIsOpenCheckout(true)}>
                     <CartIcon />
-                    <span className="icon-number">{ count }</span>
+                    <span className="icon-number">{ cart.length }</span>
                 </li>
             </ul>
         </nav>

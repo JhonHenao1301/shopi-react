@@ -11,7 +11,6 @@ export const ShoppingCartProvider = (({ children }) => {
     const [ category, setCategory ] = useState('')
     const [ search, setSearch ] = useState('')
 
-    const [ count, setCount ] = useState(0)
     const [ isOpenCheckout, setIsOpenCheckout ] = useState(null)
     const [ cart, setCart ] = useState([])
 
@@ -51,8 +50,6 @@ export const ShoppingCartProvider = (({ children }) => {
             loading,
             setCategory,
             setSearch,
-            count,
-            setCount,
             isOpenProductDetail,
             setIsOpenProductDetail,
             productToShow,
