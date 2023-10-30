@@ -9,11 +9,11 @@ export default function Navbar () {
 
     const typesProducts = [
         {name:'All', category: ''},
-        {name:'New', category: 'nuevo'},
+        {name:'T-shirt', category: 'Camisa'},
         {name:'Electronics', category: 'Electronics'},
         {name:'Furniture', category: 'Furniture'},
         {name:'Phone', category: 'Phones'},
-        {name:'Others', category: 'Others'}
+        {name:'Others', category: 'adios'}
     ]
 
     const otherActions = [
