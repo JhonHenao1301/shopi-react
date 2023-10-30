@@ -1,7 +1,7 @@
 
 import { useContext } from "react";
 import { ShoppingCartContext } from "../Context";
-import { AddToCartIcon } from "../assets/Icons/Icons";
+import { AddToCartIcon, CheckIcon } from "../assets/Icons/Icons";
 
 export default function Card ({ data }) {
     const { 
@@ -31,7 +31,7 @@ export default function Card ({ data }) {
           return (
             <div
               className='icon-plus-cart-disabled'>
-              <AddToCartIcon className='w-6 h-6 bg-white' />
+              <CheckIcon className='w-6 h-6 bg-white' />
             </div>
           )
         } else {

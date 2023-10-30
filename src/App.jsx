@@ -2,7 +2,7 @@
 import Navbar from "./components/Navbar"
 import Home from "./Pages/Home"
 import MyAccount from "./Pages/MyAccount"
-import MyOrders from "./Pages/MyOrders"
+import MyOrder from "./Pages/MyOrder"
 import SignOut from "./Pages/SignOut"
 
 import {
@@ -18,8 +18,8 @@ const AppRoutes = () => {
     { path: '/toys', element: <Home /> },
     { path: '/others', element: <Home /> },
     { path: '/my-account', element: <MyAccount /> },
-    // { path: '/my-order', element: <MyOrder /> },
-    { path: '/my-orders', element: <MyOrders /> },
+    { path: '/my-order', element: <MyOrder /> },
+    // { path: '/my-orders', element: <MyOrders /> },
     // { path: '/my-orders/last', element: <MyOrder /> },
     // { path: '/my-orders/:id', element: <MyOrder /> },
     { path: '/sign-out', element: <SignOut /> },

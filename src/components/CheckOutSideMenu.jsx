@@ -1,8 +1,9 @@
 
 import { useContext } from "react"
 import { ShoppingCartContext } from "../Context"
-import { CloseMenuIcon } from "../assets/Icons/Icons"
 import { totalPrice } from "../utils/index"
+import { Link } from "react-router-dom";
+import { CloseMenuIcon } from "../assets/Icons/Icons"
 import OrderCard from "./OrderCard"
 
 export default function CheckOutSideMenu () {
@@ -48,7 +49,9 @@ export default function CheckOutSideMenu () {
                     <span className="font-semibold">${total(cart)}</span>
                 </p>
                 <button className="border rounded-lg bg-gray-30 text-gray-5 p-2">
-                    Checkout
+                    <Link to="/my-order">
+                        Checkout
+                    </Link>
                 </button>
             </div>
         </aside>
