@@ -10,7 +10,7 @@ import CheckOutSideMenu from "../components/CheckOutSideMenu"
 export default function Home () {
 
     const { loading, 
-            filteredItems, 
+            filteredItems,
             setSearch,
           } = useContext(ShoppingCartContext)
     return ( 

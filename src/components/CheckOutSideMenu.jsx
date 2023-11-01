@@ -7,7 +7,15 @@ import { CloseMenuIcon } from "../assets/Icons/Icons"
 import OrderCard from "./OrderCard"
 
 export default function CheckOutSideMenu () {
-    const { cart, setCart, setIsOpenCheckout, isOpenCheckout } = useContext(ShoppingCartContext)
+    const { 
+        cart, 
+        setCart, 
+        setIsOpenCheckout, 
+        isOpenCheckout,
+        orders,
+        setOrders        
+    } = useContext(ShoppingCartContext)
+
     const total = (products) => {
         return totalPrice(products)
     }
@@ -17,8 +25,26 @@ export default function CheckOutSideMenu () {
     }
 
     const handleDeleteButton = (id) => {
-        setCart(cart?.filter(item => item.id != id))
-    }  
+        setCart(cart?.filter(item => item.id !== id))
+    }
+
+    // localStorage.setItem('__cart__storages__', [cart])
+    // const cartStorageList = localStorage.getItem('__cart__storages__')
+    
+    const handleCheckoutButton = () => {
+        let id = crypto.randomUUID()
+        const orderToAdd = {
+            id: id,
+            products: cart,
+            totalPrice: total(cart)
+        }
+
+        setOrders([...orders, orderToAdd])
+        setCart([])
+        // cartStorageList.push({'id': `${id}`, 'cart': cart})
+        // localStorage.setItem('__cart__storages__', cartStorage)
+        // localStorage.setItem('__cart__storages__', JSON.stringify(cartStorage))
+    }
 
     return ( 
         <aside className={`${isOpenCheckout ? 'flex' : 'hidden'} checkout flex-col justify-between gap-4 fixed right-0 border border-black rounded-lg bg-gray-5 py-4 px-2`}>
@@ -48,8 +74,11 @@ export default function CheckOutSideMenu () {
                     <span>Total</span>
                     <span className="font-semibold">${total(cart)}</span>
                 </p>
-                <button className="border rounded-lg bg-gray-30 text-gray-5 p-2">
-                    <Link to="/my-order">
+                <button 
+                className="border rounded-lg bg-gray-30 text-gray-5 p-2"
+                onClick={handleCheckoutButton}
+                >
+                    <Link to="/my-orders/last">
                         Checkout
                     </Link>
                 </button>
