@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 import Home from "./Pages/Home"
 import MyAccount from "./Pages/MyAccount"
 import MyOrder from "./Pages/MyOrder"
+import MyOrders from "./Pages/MyOrders"
 import SignOut from "./Pages/SignOut"
 
 import {
@@ -14,12 +15,12 @@ const AppRoutes = () => {
     { path: '/', element: <Home /> },
     { path: '/clothes', element: <Home /> },
     { path: '/electronics', element: <Home /> },
-    { path: '/furnitures', element: <Home /> },
+    { path: '/furniture', element: <Home /> },
     { path: '/toys', element: <Home /> },
     { path: '/others', element: <Home /> },
     { path: '/my-account', element: <MyAccount /> },
     { path: '/my-order', element: <MyOrder /> },
-    // { path: '/my-orders', element: <MyOrders /> },
+    { path: '/my-orders', element: <MyOrders /> },
     // { path: '/my-orders/last', element: <MyOrder /> },
     // { path: '/my-orders/:id', element: <MyOrder /> },
     { path: '/sign-out', element: <SignOut /> },
