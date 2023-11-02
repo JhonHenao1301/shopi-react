@@ -9,11 +9,10 @@ export default function Navbar () {
 
     const typesProducts = [
         {name:'All', category: ''},
-        {name:'T-shirt', category: 'Camisa'},
         {name:'Electronics', category: 'Electronics'},
         {name:'Furniture', category: 'Furniture'},
-        {name:'Phone', category: 'Phones'},
-        {name:'Others', category: 'adios'}
+        {name:'Clothes', category: 'Clothes'},
+        {name:'Others', category: 'Others'}
     ]
 
     const otherActions = [
@@ -30,7 +29,9 @@ export default function Navbar () {
         <nav className="bg-gray-5 top-0 flex justify-between items-center p-4">
             <div className="navbar-section">
                 <h2 className="font-bold">
-                    <a href="/">Shopi</a>
+                    <Link to="/">
+                        <span>Shopi</span>
+                    </Link>
                 </h2>
                 
                 <select 
@@ -39,11 +40,10 @@ export default function Navbar () {
                 >
                     {
                         typesProducts.map(({name, category}) => (
-                            <option 
-                                key={name}
-                                value={category}
-                            >
-                                { name }
+                            <option key={name} value={category}>
+                                <Link to="/home">
+                                    { name }
+                                </Link>
                             </option>
                         ))
                     }
