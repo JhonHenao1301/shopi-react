@@ -1,5 +1,5 @@
 
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ShoppingCartContext } from "../Context"
 import Card from "../components/Card"
 import Layout from "../components/Layout"
@@ -13,6 +13,23 @@ export default function Home () {
             filteredItems,
             setSearch,
           } = useContext(ShoppingCartContext)
+    
+    const [ currentPage, setCurrentPage ] = useState(0)
+    const totalItems = filteredItems?.length
+    const range = 20
+
+    const itemsPerPage = filteredItems?.slice(currentPage, currentPage + range)
+
+    const previousPage = () => {
+        if (currentPage > 0)
+        setCurrentPage(currentPage - range)
+    }
+
+    const nextPage = () => {
+        if(totalItems > currentPage + range)
+        setCurrentPage(currentPage + range)
+    }
+ 
     return ( 
         <Layout>
             <div className='flex items-center justify-center relative w-80 mb-4'>
@@ -28,9 +45,9 @@ export default function Home () {
             />
             <div className='grid grid-cols-fits gap-8 px-4 justify-center w-full max-w-screen-xl '>
                 {
-                    filteredItems?.length > 0
+                    itemsPerPage?.length > 0
                     ?   !loading
-                        ?   filteredItems?.map(item => (
+                        ?   itemsPerPage?.map(item => (
                                 <Card 
                                     key={item.id}
                                     data={item}
@@ -39,6 +56,10 @@ export default function Home () {
                         :   <Loader />
                     : <h1 className="mt-4 text-center">No images found</h1>
                 }
+            </div>
+            <div className="flex gap-4">
+                <button className="border p-4 rounded-lg" onClick={previousPage}>x</button>
+                <button className="border p-4 rounded-lg" onClick={nextPage}>y</button>
             </div>
             <ProductDetail />
             <CheckOutSideMenu />
