@@ -15,7 +15,10 @@ export const ShoppingCartProvider = (({ children }) => {
     const [ cart, setCart ] = useState([])
 
     // Shopping Cart · Order
-    const [orders, setOrders] = useState([])
+    const [ orders, setOrders ] = useState([])
+
+    // localStorage.setItem('__cart__storages__', [cart])
+    // const cartStorageList = localStorage.getItem('__cart__storages__')
 
     const [ isOpenProductDetail, setIsOpenProductDetail ] = useState(null)
     const [ productToShow, setProductToShow ] = useState(null) 
@@ -62,7 +65,7 @@ export const ShoppingCartProvider = (({ children }) => {
             isOpenCheckout,
             setIsOpenCheckout,
             orders,
-            setOrders
+            setOrders,
         }}>
             { children }
         </ShoppingCartContext.Provider>

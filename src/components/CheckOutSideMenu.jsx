@@ -28,8 +28,6 @@ export default function CheckOutSideMenu () {
         setCart(cart?.filter(item => item.id !== id))
     }
 
-    // localStorage.setItem('__cart__storages__', [cart])
-    // const cartStorageList = localStorage.getItem('__cart__storages__')
     
     const handleCheckoutButton = () => {
         let id = crypto.randomUUID()
@@ -40,11 +38,9 @@ export default function CheckOutSideMenu () {
         }
 
         setOrders([...orders, orderToAdd])
+        localStorage.setItem('__cart__orders__', JSON.stringify(orders))
         setIsOpenCheckout(false)
         setCart([])
-        // cartStorageList.push({'id': `${id}`, 'cart': cart})
-        // localStorage.setItem('__cart__storages__', cartStorage)
-        // localStorage.setItem('__cart__storages__', JSON.stringify(cartStorage))
     }
 
     return ( 

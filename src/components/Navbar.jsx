@@ -41,9 +41,7 @@ export default function Navbar () {
                     {
                         typesProducts.map(({name, category}) => (
                             <option key={name} value={category}>
-                                <Link to="/home">
-                                    { name }
-                                </Link>
+                                { name }
                             </option>
                         ))
                     }
