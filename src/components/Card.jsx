@@ -50,10 +50,11 @@ export default function Card ({ data }) {
       }
 
     return ( 
-      <div 
-        className='bg-white w-56 h-60 rounded-lg' 
-        onClick={() => handleItemSelected(data)}>
-        <figure className='relative cursor-pointer bg-white mb-2 w-full h-4/5'>
+      <div className='bg-white w-56 h-60 rounded-lg' >
+        <figure 
+          className='relative cursor-pointer bg-white mb-2 w-full h-4/5'
+          onClick={() => handleItemSelected(data)}
+        >
             <span className='span-category'>
                 {data.category.name}
             </span>

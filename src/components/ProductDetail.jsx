@@ -45,6 +45,6 @@ export default function ProductDetail () {
                     </span>
                 </p>
               </aside>
-            : ''
+            : <aside></aside>
     )
 }

@@ -9,7 +9,7 @@ export default function MyOrders () {
     return ( 
         <Layout>
             <h1 className="font-semibold text-subtitle">My Orders</h1>
-            <div className="flex flex-col gap-4 mt-4 w-72">
+            <div className="flex flex-col overflow-y-scroll gap-4 mt-4 w-72 orders p-4">
                 {   
                     orders.map((order, index) => (
                         <Link key={order.id} to={`/my-orders/${index}`}>

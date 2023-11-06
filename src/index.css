@@ -77,6 +77,10 @@ li {
     top: 68px;
 }
 
+.orders {
+    height: calc(100vh - 15rem);
+}
+
 /* Scroll bar on checkout menu */
 /* width */
 ::-webkit-scrollbar {
