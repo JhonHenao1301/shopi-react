@@ -40,6 +40,7 @@ export default function CheckOutSideMenu () {
         }
 
         setOrders([...orders, orderToAdd])
+        setIsOpenCheckout(false)
         setCart([])
         // cartStorageList.push({'id': `${id}`, 'cart': cart})
         // localStorage.setItem('__cart__storages__', cartStorage)
@@ -50,12 +51,10 @@ export default function CheckOutSideMenu () {
         <aside className={`${isOpenCheckout ? 'flex' : 'hidden'} checkout flex-col justify-between gap-4 fixed right-0 border border-black rounded-lg bg-gray-5 py-4 px-2`}>
             <div className='flex justify-between items-center px-4'>
                 <h2 className='font-semibold text-xl'>My Order</h2>
-                <div
-                    className='h-6 w-6 text-black cursor-pointer'
-                    onClick={handleCloseMenu}
-                >
+                <button
+                    onClick={handleCloseMenu}>
                     <CloseMenuIcon />
-                </div>
+                </button>
             </div>
             <div className="flex flex-col gap-4 px-4 overflow-y-scroll flex-1">
                 {
@@ -75,8 +74,8 @@ export default function CheckOutSideMenu () {
                     <span className="font-semibold">${total(cart)}</span>
                 </p>
                 <button 
-                className="border rounded-lg bg-gray-30 text-gray-5 p-2"
-                onClick={handleCheckoutButton}
+                    className="border rounded-lg bg-gray-30 text-gray-5 p-2"
+                    onClick={handleCheckoutButton}
                 >
                     <Link to="/my-orders/last">
                         Checkout

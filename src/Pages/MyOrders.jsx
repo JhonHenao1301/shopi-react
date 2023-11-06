@@ -8,7 +8,7 @@ export default function MyOrders () {
     const { orders } = useContext(ShoppingCartContext)
     return ( 
         <Layout>
-            <h1>My Orders</h1>
+            <h1 className="font-semibold text-subtitle">My Orders</h1>
             <div className="flex flex-col gap-4 mt-4 w-72">
                 {   
                     orders.map((order, index) => (

@@ -68,8 +68,10 @@ export default function Navbar () {
                         </li>
                     ))
                 }
-                <li className="icon" onClick={() => setIsOpenCheckout(true)}>
-                    <CartIcon />
+                <li className="icon" >
+                    <button onClick={() => setIsOpenCheckout(true)}>
+                        <CartIcon />
+                    </button>
                     <span className="icon-number">{ cart.length }</span>
                 </li>
             </ul>

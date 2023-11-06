@@ -17,14 +17,14 @@ export default function ProductDetail () {
     return (
             productToShow 
             ? <aside
-                className={`${isOpenProductDetail && productToShow ? 'hidden' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded-lg bg-gray-5`}>
+                className={`${isOpenProductDetail ? 'flex' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded-lg bg-gray-5`}>
                 <div className='flex justify-between items-center p-6'>
                     <h2 className='font-medium text-xl'>Detail</h2>
-                    <div
-                        className='h-6 w-6 text-black cursor-pointer'
+                    <button
+                        className='h-6 w-6 text-black'
                         onClick={handleCloseButton} >
                         <CloseMenuIcon/>
-                    </div>
+                    </button>
                 </div>
                 <figure className='px-6'>
                     <img

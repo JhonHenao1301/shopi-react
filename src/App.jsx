@@ -5,6 +5,7 @@ import MyAccount from "./Pages/MyAccount"
 import MyOrder from "./Pages/MyOrder"
 import MyOrders from "./Pages/MyOrders"
 import SignOut from "./Pages/SignOut"
+import NotFound from "./Pages/NotFound"
 
 import {
   useRoutes, BrowserRouter
@@ -24,7 +25,7 @@ const AppRoutes = () => {
     { path: '/my-orders/last', element: <MyOrder /> },
     { path: '/my-orders/:id', element: <MyOrder /> },
     { path: '/sign-out', element: <SignOut /> },
-    // { path: '/*', element: <NotFound /> },
+    { path: '/*', element: <NotFound /> },
   ])
 
   return routes
