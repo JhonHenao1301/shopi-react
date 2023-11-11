@@ -4,10 +4,20 @@ import { NextIcon } from "../assets/Icons/Icons";
 
 export default function FinalOrderCard (props) {
     const { index, data, totalPrice } = props
+    const currentDate = new Date()
+    
+    const getCurrentDate = (date) => {
+        const day   = date.getDate()
+        const month = date.getMonth()
+        const year  = date.getFullYear()
+
+        return `${day}/${month + 1}/${year}`
+    }
+    
     return ( 
         <div className="flex justify-between p-4 border rounded-md">
             <div className="flex flex-col">
-                <span>01-12-23</span>
+                <span>{getCurrentDate(currentDate)}</span>
                 <span>{data.length} articles</span>
             </div>
             <div className="flex items-center gap-2">
